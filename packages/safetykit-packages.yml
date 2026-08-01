@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: npm, PyPI, RubyGems registries + docs.safetykit.com SDK docs
+notes: >-
+  Official first-party client libraries confirmed on public registries (npm/PyPI/RubyGems
+  self-describe as "official ... for the SafetyKit API"). Source repos live under the
+  GetSafetyKit GitHub org. The docs also reference Java and Kotlin (gradle/maven) SDKs,
+  but no matching first-party coordinate was found on Maven Central at probe time, so
+  they are not listed here to avoid fabrication.
+packages:
+- language: javascript
+  registry: npm
+  name: safetykit
+  url: https://www.npmjs.com/package/safetykit
+  install: npm install safetykit
+  version: 0.11.0-alpha
+  repository: https://github.com/GetSafetyKit/safetykit-typescript
+  official: true
+- language: python
+  registry: pypi
+  name: safetykit
+  url: https://pypi.org/project/safetykit/
+  install: pip install safetykit
+  version: 0.10.0a0
+  repository: https://github.com/GetSafetyKit/safetykit-python
+  official: true
+- language: ruby
+  registry: rubygems
+  name: safetykit
+  url: https://rubygems.org/gems/safetykit
+  install: gem install safetykit
+  version: 0.43.0
+  official: true

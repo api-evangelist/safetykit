@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.safetykit.com/authentication
+docs: https://docs.safetykit.com/authentication
+summary:
+  types:
+  - http
+  http_schemes:
+  - bearer
+  oauth2_flows: []
+  api_key_in: []
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    All SafetyKit API calls authenticate with a bearer token in the Authorization
+    header. API keys are prefixed with `sk_` and are created on the Team API Keys
+    page in the SafetyKit dashboard. Keys are server-side secrets and must never be
+    exposed to client-side code (browsers, mobile apps); browser/mobile SDK access
+    is brokered through short-lived session tokens minted server-side via POST /v1/sessions.
+  header_example: 'Authorization: Bearer sk_...'
+  key_prefix: sk_
+  sources:
+  - https://docs.safetykit.com/authentication

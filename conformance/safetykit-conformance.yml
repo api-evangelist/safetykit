@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.safetykit.com/ + https://trust.safetykit.com/
+standards:
+- id: bearer-token-auth
+  conforms: true
+  evidence: Authorization Bearer sk_ tokens (docs authentication page)
+- id: standard-webhooks
+  conforms: true
+  evidence: webhook-id/webhook-timestamp/webhook-signature headers, HMAC-SHA256, whsec_ secret (Svix convention)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no application/problem+json error registry published
+- id: oauth2
+  conforms: false
+- id: soc2
+  conforms: true
+  evidence: SOC 2 listed on trust.safetykit.com
+- id: hipaa
+  conforms: true
+  evidence: HIPAA listed on trust.safetykit.com
+- id: gdpr
+  conforms: true
+  evidence: GDPR listed on trust.safetykit.com; data deletion request endpoint documented

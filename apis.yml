@@ -1,8 +1,14 @@
 aid: safetykit
 name: SafetyKit
-description: 'SafetyKit is a company surfaced as a portfolio company of ribbit-capital and added to the
-  API Evangelist network as a stub for enrichment. Sector: ai. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: 'SafetyKit is an AI trust, safety, and fraud-detection platform that lets
+  marketplaces, fintechs, and social and creator platforms deploy AI agents to automate
+  risk reviews, onboarding, and investigations. Its Data API ingests every user action
+  and object through a lightweight SDK and API, organizes them into per-workflow namespaces,
+  and asynchronously returns agent decisions — labels, risk scores, and enforcement
+  actions such as account suspension — delivered back over signed webhooks. SafetyKit
+  detects account takeover, multi-accounting, fake accounts, phishing, spam, harmful
+  content, scams, and prohibited listings, and is used by companies including Upwork,
+  Etsy, Eventbrite, Lyft, Discord, and Kickstarter.'
 url: https://raw.githubusercontent.com/api-evangelist/safetykit/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,18 +16,115 @@ x-backed-by:
 - ribbit-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://cdn.prod.website-files.com/67f043481889440b9d0ed13e/67f043481889440b9d0ed170_a5826400373f60a9d521bc5bca8ad3f3_OG%20Image.jpg
 tags:
 - Company
 - Ai
-apis: []
+- Trust and Safety
+- Fraud Detection
+- Content Moderation
+- Risk
+- AI Agents
+- Compliance
+apis:
+- name: SafetyKit Data API
+  description: 'Ingest user actions and objects into per-workflow namespaces and asynchronously
+    receive AI agent decisions (labels, risk scores, enforcement actions) via signed
+    webhooks.'
+  humanURL: https://docs.safetykit.com/
+  baseURL: https://api.safetykit.com
+  tags:
+  - Trust and Safety
+  - Fraud Detection
+  - Risk
+  properties:
+  - type: Documentation
+    url: https://docs.safetykit.com/
+  - type: APIReference
+    url: https://docs.safetykit.com/api
+  - type: Authentication
+    url: https://docs.safetykit.com/authentication
+  - type: Webhooks
+    url: https://docs.safetykit.com/webhooks/introduction
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/safetykit-trust-center.yml
+- type: DomainSecurity
+  url: security/safetykit-domain-security.yml
 - type: Website
   url: https://www.safetykit.com
+- type: DeveloperPortal
+  url: https://docs.safetykit.com/
+- type: Documentation
+  url: https://docs.safetykit.com/
+- type: APIReference
+  url: https://docs.safetykit.com/api
+- type: GettingStarted
+  url: https://docs.safetykit.com/using-data-api/copy-and-paste-quickstart
+- type: Support
+  url: mailto:support@safetykit.com
+- type: Blog
+  url: https://safetykit.com/news
+- type: GitHubOrganization
+  url: https://github.com/GetSafetyKit
+- type: SignUp
+  url: https://app.safetykit.com/
+- type: TermsOfService
+  url: https://app.safetykit.com/msa_2024-03-25.pdf
+- type: PrivacyPolicy
+  url: https://app.safetykit.com/privacy.pdf
+- type: Compliance
+  url: security/safetykit-trust-center.yml
+- type: StatusPage
+  url: http://www.safetykitstatus.com/
+- type: Lifecycle
+  url: lifecycle/safetykit-lifecycle.yml
+- type: Authentication
+  url: authentication/safetykit-authentication.yml
+- type: Conventions
+  url: conventions/safetykit-conventions.yml
+- type: Webhooks
+  url: asyncapi/safetykit-webhooks.yml
+- type: ErrorCatalog
+  url: errors/safetykit-problem-types.yml
+- type: DataModel
+  url: data-model/safetykit-data-model.yml
+- type: Conformance
+  url: conformance/safetykit-conformance.yml
+- type: Packages
+  url: packages/safetykit-packages.yml
+- type: SDKs
+  url: packages/safetykit-packages.yml
+- type: MCPServer
+  url: mcp/safetykit-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: WellKnown
+  url: well-known/safetykit-well-known.yml
+- type: LLMsTxt
+  url: llms/safetykit-llms.txt
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

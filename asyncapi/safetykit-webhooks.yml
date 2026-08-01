@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+type: Webhooks
+source: https://docs.safetykit.com/webhooks/introduction
+docs: https://docs.safetykit.com/webhooks/introduction
+notes: >-
+  SafetyKit documents outbound webhooks but publishes no AsyncAPI document. Delivery
+  follows the Standard Webhooks / Svix convention (webhook-id, webhook-timestamp,
+  webhook-signature headers). Webhooks are the primary channel for receiving
+  asynchronous Data API agent decisions.
+delivery:
+  transport: https-post
+  endpoints_configured_in: dashboard
+  signature:
+    algorithm: HMAC-SHA256
+    scheme: standard-webhooks (svix)
+    signature_header: webhook-signature
+    signature_format: 'v1,<base64-signature>'
+    id_header: webhook-id
+    timestamp_header: webhook-timestamp
+    signing_secret_prefix: whsec_
+    signed_content: '<webhook-id>.<webhook-timestamp>.<raw-body>'
+    timestamp_tolerance_seconds: 300
+    idempotency: webhook-id is stable across resend attempts
+events:
+- type: workflow.succeeded
+  description: A Data API workflow completed successfully for an object.
+  docs: https://docs.safetykit.com/webhooks/event-types/workflow-succeeded
+  payload_fields:
+  - type
+  - namespace
+  - id
+  - request_id
+  - url
+  - metadata
+  - output
+  output_fields:
+  - actions
+  - labels
+  - fields
+  - label_changes
+- type: workflow.failed
+  description: A Data API workflow failed to complete for an object.
+  docs: https://docs.safetykit.com/webhooks/event-types/workflow-failed

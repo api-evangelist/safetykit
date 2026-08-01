@@ -1,0 +1,75 @@
+# SafetyKit
+
+## Docs
+
+- [Agent Decisions](/agent-decisions/index.md): Submit ground truth review decisions back to SafetyKit.
+- [Getting Started](/android-sdk/introduction/index.md): How to use the SafetyKit Android SDK
+- [Authentication](/authentication/index.md): How to authenticate your SafetyKit API calls
+- [Browser SDK Setup](/browser-sdk/setup/index.md): Create a SafetyKit Webapp SDK session and load the returned browser script.
+- [Backend Events](/events/backend-events/index.md): Send durable server-side product events to SafetyKit.
+- [Introduction](/index.md): With SafetyKit, you can deploy AI agents to automate risk reviews, onboarding, and investigations. Trusted by leading marketplaces and fintech platforms.
+- [Adding and Updating Data](/using-data-api/adding-and-updating-data/index.md): Ingest single objects or small batches and update existing objects with stable IDs.
+- [Adding Data in Batches](/using-data-api/adding-data-in-batches/index.md): Use upload URLs for high-volume JSONL ingestion.
+- [Configuring Schema](/using-data-api/configuring-schema/index.md): Describe field meaning and presentation with schema content types and display hints.
+- [Copy-and-Paste Quickstart](/using-data-api/copy-and-paste-quickstart/index.md): Copy-paste starter snippets for ingest, upload URLs, polling, and webhooks.
+- [Core Concepts](/using-data-api/core-concepts/index.md): Understand namespaces, objects, requests, schema, and asynchronous processing.
+- [Limits and Best Practices](/using-data-api/limits-and-best-practices/index.md): Operational guidance for reliability, throughput, and data quality.
+- [Multi-namespace Orchestration](/using-data-api/multi-namespace-orchestration/index.md): Run multiple workflows for the same entity across namespaces.
+- [Receiving Results](/using-data-api/receiving-results/index.md): Handle asynchronous Data API outputs via webhooks.
+- [Request Status and Polling](/using-data-api/request-status-and-polling/index.md): Track request progress and retrieve request-level outputs.
+- [Adding Endpoints](/webhooks/adding-endpoints/index.md)
+- [Additional Authentication](/webhooks/additional-authentication/index.md)
+- [workflow.failed](/webhooks/event-types/workflow-failed/index.md)
+- [workflow.succeeded](/webhooks/event-types/workflow-succeeded/index.md)
+- [Introduction](/webhooks/introduction/index.md)
+- [Testing Events](/webhooks/testing-events/index.md)
+- [Verifying Signatures](/webhooks/verifying-signatures/index.md)
+
+## API Reference
+
+Links below point to language-neutral HTTP documentation. SDK-specific docs follow the same URL structure with the language inserted after the base path: `/api/{language}/resources/...`.
+
+Available languages: http, typescript, python, java, kotlin, ruby
+
+### [Data](/api/resources/data/index.md)
+
+- [Add](/api/resources/data/methods/add/index.md): Add data
+- [Create Upload URL](/api/resources/data/methods/createUploadUrl/index.md): Create upload URL
+- [Get Status](/api/resources/data/methods/getStatus/index.md): Get request status and inline results
+- [Get Download URL](/api/resources/data/methods/getDownloadUrl/index.md): Get download URL
+- [Update Settings](/api/resources/data/methods/updateSettings/index.md): Update namespace settings
+
+
+### [Streams](/api/resources/streams/index.md)
+
+- [Add](/api/resources/streams/methods/add/index.md): Add stream
+- [Add Frame](/api/resources/streams/methods/addFrame/index.md): Add frame
+- [Add Transcript](/api/resources/streams/methods/addTranscript/index.md): Add transcript
+
+
+### [Agent Decisions](/api/resources/agent_decisions/index.md)
+
+- [Create Agent Decision](/api/resources/agent_decisions/methods/createAgentDecision/index.md): Record an agent decision
+
+
+### [Async](/api/resources/async/index.md)
+
+- [Create Async](/api/resources/async/methods/createAsync/index.md): Queue event for async ingest (Beta)
+
+
+### [Deletion Requests](/api/resources/deletion_requests/index.md)
+
+- [Create](/api/resources/deletion_requests/methods/create/index.md): Create deletion request
+
+
+### [Client Sessions](/api/resources/client_sessions/index.md)
+
+- [Create Session](/api/resources/client_sessions/methods/createSession/index.md): Create webapp SDK session
+
+
+### [Beta](/api/resources/beta/index.md)
+
+
+- [Events](/api/resources/beta/subresources/events/index.md)
+
+  - [Create](/api/resources/beta/subresources/events/methods/create/index.md): Create event (Beta)

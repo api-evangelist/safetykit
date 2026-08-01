@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+format: http-status
+source: https://docs.safetykit.com/using-data-api/limits-and-best-practices
+notes: >-
+  SafetyKit does not publish an RFC 9457 problem+json error registry. These are the
+  HTTP status codes explicitly documented in the Data API guidance; the API reference
+  is the source of truth for per-operation error bodies.
+problems:
+- status: 200
+  title: OK
+  meaning: Successful request-status retrieval / ingest accepted.
+- status: 413
+  title: Payload Too Large
+  meaning: Completed request output exceeds the 5 MiB inline limit.
+  remediation: Retrieve results via the results download-url endpoint instead of inline.
+- status: 429
+  title: Too Many Requests
+  meaning: Transient throttling.
+  remediation: Retry with exponential backoff.
+- status: 500
+  title: Internal Server Error
+  meaning: Transient server error.
+  remediation: Retry with backoff.
+- status: 503
+  title: Service Unavailable
+  meaning: Transient unavailability.
+  remediation: Retry with backoff.

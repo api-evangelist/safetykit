@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of provider hosts
+notes: >-
+  No .well-known discovery documents are published on any SafetyKit host. The apex
+  security.txt path 307-redirects to www, which then 404s (no security.txt served).
+  Absence is valid, expected data.
+hosts:
+- host: https://www.safetykit.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://docs.safetykit.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+- host: https://app.safetykit.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://api.safetykit.com
+  documents:
+  - path: /
+    status: 403
+- host: https://safetykit.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 307
+    redirect: https://www.safetykit.com/.well-known/security.txt

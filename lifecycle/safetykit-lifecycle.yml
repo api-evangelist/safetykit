@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.safetykit.com/ + http://www.safetykitstatus.com/
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://docs.safetykit.com/
+status_page: http://www.safetykitstatus.com/
+status_page_provider: Atlassian Statuspage
+status_components:
+- SafetyKit App
+- SafetyKit API
+deprecation:
+  policy_url: null
+  sunset_header: null
+  notes: No published deprecation/sunset policy found.
+sla:
+  url: null
+deprecated_operations: []

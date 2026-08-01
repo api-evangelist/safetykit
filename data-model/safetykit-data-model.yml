@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: derived
+source: https://docs.safetykit.com/using-data-api/core-concepts
+notes: >-
+  Entity graph derived from the documented Data API core concepts (namespace, object,
+  request, stream, agent decision, webhook event). SafetyKit publishes no OpenAPI or
+  formal object reference, so relationships reflect the documented data model.
+entities:
+- name: Namespace
+  description: Logical container for one object type and its review workflow; holds rules, outputs, and schema.
+  key: namespace (string; alphanumeric, underscore, dash)
+  relationships:
+  - has_many: Object
+  - has_many: Request
+  - has_one: Schema
+    via: settings
+- name: Object
+  description: One JSON record in a data payload, keyed by a stable caller-supplied id; upserted/re-evaluated on resubmit.
+  key: id
+  relationships:
+  - belongs_to: Namespace
+  - has_many: AgentDecision
+- name: Request
+  description: A single ingest submission; returns a request_id and is processed asynchronously.
+  key: request_id (req_<ulid>)
+  fields: [namespace, request_id, status, data]
+  status_enum: [queued, uploading, ingesting, succeeded, failed]
+  relationships:
+  - belongs_to: Namespace
+  - has_many: Object
+- name: Stream
+  description: A registered livestream monitored via submitted frames and transcripts.
+  relationships:
+  - belongs_to: Namespace
+- name: AgentDecision
+  description: A ground-truth reviewer verdict recorded to improve model accuracy.
+  relationships:
+  - belongs_to: Object
+    via: id
+- name: WebhookEvent
+  description: Outbound event delivering per-object workflow outcomes (workflow.succeeded / workflow.failed).
+  fields: [type, namespace, id, request_id, url, metadata, output]
+  relationships:
+  - belongs_to: Request
+    via: request_id
+  - belongs_to: Object
+    via: id

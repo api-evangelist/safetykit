@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: generated
+source: https://docs.safetykit.com/
+notes: >-
+  Skills grounded in operations documented in the SafetyKit API reference and webhook
+  docs. SafetyKit publishes no OpenAPI or AGENTS.md; steps map to documented resource
+  methods and the verified webhook signature scheme.
+skills:
+- file: safetykit-ingest-and-decide.md
+  name: Ingest an object and receive a risk decision
+  api: SafetyKit Data API
+  operations: [add, getStatus, getDownloadUrl]
+- file: safetykit-handle-webhooks.md
+  name: Verify and handle SafetyKit webhooks
+  api: SafetyKit Data API
+  operations: [addEndpoint, verifySignature]

@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.safetykit.com/
+docs: https://docs.safetykit.com/using-data-api/core-concepts
+authentication:
+  style: bearer-token
+  header: 'Authorization: Bearer sk_...'
+  ref: authentication/safetykit-authentication.yml
+processing_model:
+  style: asynchronous
+  description: >-
+    Ingest calls return a request_id immediately and are processed asynchronously;
+    per-object agent decisions are delivered via webhook (workflow.succeeded /
+    workflow.failed) or retrieved by polling the request-status endpoint.
+  request_id_format: 'req_<ulid>  (e.g. req_01h2m7qdmdjckc30e1mnq6xqfd)'
+  status_enum: [queued, uploading, ingesting, succeeded, failed]
+idempotency:
+  style: upsert-by-id
+  description: >-
+    There is no Idempotency-Key header. Deduplication is by the stable object `id`
+    within a namespace — resubmitting the same id updates and re-evaluates that
+    object rather than creating a duplicate.
+  key_field: id
+pagination:
+  documented: false
+versioning:
+  scheme: uri-path
+  current: v1
+  ref: lifecycle/safetykit-lifecycle.yml
+namespaces:
+  description: >-
+    A namespace is a logical container for one object type and its review workflow;
+    rules, outputs, and schema are configured per namespace. Schema is set via
+    PUT /v1/data/{namespace}/settings.
+response_size:
+  inline_limit: 5 MiB
+  oversize_behavior: >-
+    Responses over 5 MiB return HTTP 413; retrieve results via the results
+    download-url endpoint instead of inline.
+error_handling:
+  transient_retry_codes: [429, 500, 503]
+  guidance: retry transient failures with backoff
+  ref: errors/safetykit-problem-types.yml
+webhooks:
+  ref: asyncapi/safetykit-webhooks.yml
