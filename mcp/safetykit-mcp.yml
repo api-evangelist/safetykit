@@ -2,47 +2,52 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: https://docs.safetykit.com/api
-notes: >-
-  No official hosted/remote SafetyKit MCP server was found. This is a candidate tool
-  list derived from the operations documented in the SafetyKit API reference. Tool
-  names map to documented resource methods; not an authoritative provider manifest.
+notes: No official hosted/remote SafetyKit MCP server was found. This is a candidate tool list derived
+  from the operations documented in the SafetyKit API reference. Tool names map to documented resource
+  methods; not an authoritative provider manifest.
 server:
   name: safetykit
   transport: http
 tools:
 - name: add_data
   description: Ingest single objects or small batches for risk evaluation in a namespace.
-  source_operation: 'POST /v1/data/{namespace}'
+  source_operation: POST /v1/data/{namespace}
 - name: create_upload_url
   description: Create a signed URL for high-volume JSONL data upload.
-  source_operation: 'POST /v1/data/{namespace}/requests/upload-url'
+  source_operation: POST /v1/data/{namespace}/requests/upload-url
 - name: get_request_status
   description: Get request status and inline results.
-  source_operation: 'GET /v1/data/{namespace}/requests/{requestId}'
+  source_operation: GET /v1/data/{namespace}/requests/{requestId}
 - name: get_results_download_url
   description: Get a download URL for processed results.
-  source_operation: 'GET /v1/data/{namespace}/requests/{requestId}/results/download-url'
+  source_operation: GET /v1/data/{namespace}/requests/{requestId}/results/download-url
 - name: update_namespace_settings
   description: Update namespace-level schema and settings.
-  source_operation: 'PUT /v1/data/{namespace}/settings'
+  source_operation: PUT /v1/data/{namespace}/settings
 - name: add_stream
   description: Register a livestream for monitoring.
-  source_operation: 'POST /v1/streams/{namespace}'
+  source_operation: POST /v1/streams/{namespace}
 - name: add_stream_frame
   description: Submit video frames from an active stream.
-  source_operation: 'POST /v1/streams/{namespace}/frames'
+  source_operation: POST /v1/streams/{namespace}/frames
 - name: add_stream_transcript
   description: Add transcript data to a stream.
-  source_operation: 'POST /v1/streams/{namespace}/transcripts'
+  source_operation: POST /v1/streams/{namespace}/transcripts
 - name: create_agent_decision
   description: Record a ground-truth reviewer verdict to improve model accuracy.
-  source_operation: 'POST /v1/agent_decisions'
+  source_operation: POST /v1/agent_decisions
 - name: create_async_event
   description: Queue a backend event for asynchronous ingest (Beta).
-  source_operation: 'POST /v1/async/events'
+  source_operation: POST /v1/async/events
 - name: create_deletion_request
   description: Submit an end-user data deletion request.
-  source_operation: 'POST /v1/deletion_requests'
+  source_operation: POST /v1/deletion_requests
 - name: create_session
   description: Mint a browser-safe session token for client-side SDK use (Beta).
-  source_operation: 'POST /v1/sessions'
+  source_operation: POST /v1/sessions
+deployment:
+  mode: none
+  verified: derived
+  tools: 12
+  checked: '2026-08-12'
+  source: catalog MCP census
