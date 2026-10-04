@@ -48,9 +48,9 @@ tags:
 - Company
 - Artificial Intelligence
 - Trust and Safety
-- Fraud Detection
+- Fraud Prevention
 - Content Moderation
-- Risk
+- Risk Management
 - AI Agents
 - Compliance
 tags_raw:
@@ -70,6 +70,10 @@ apis:
   humanURL: https://docs.safetykit.com/
   baseURL: https://api.safetykit.com
   tags:
+  - Trust and Safety
+  - Fraud Prevention
+  - Risk Management
+  tags_raw:
   - Trust and Safety
   - Fraud Detection
   - Risk
